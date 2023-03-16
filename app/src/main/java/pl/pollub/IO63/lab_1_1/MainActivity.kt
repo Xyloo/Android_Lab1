@@ -82,7 +82,21 @@ class MainActivity : AppCompatActivity() {
                 for(field2 in fields)
                 {
                     if(field2.text.toString().isNotEmpty())
+                    {
+                        if(field2 == marksField)
+                        {
+                            val value = field2.text.toString().toIntOrNull()
+                            if(value != null)
+                            {
+                                if(value < 5 || value > 15)
+                                {
+                                    button.visibility = View.GONE
+                                    break
+                                }
+                            }
+                        }
                         button.visibility = View.VISIBLE
+                    }
                     else
                     {
                         button.visibility = View.GONE
